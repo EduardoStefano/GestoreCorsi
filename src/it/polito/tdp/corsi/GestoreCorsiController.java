@@ -17,7 +17,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class GestoreCorsiController {
-
+	
 	private GestoreCorsi model;
 	
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -48,20 +48,22 @@ public class GestoreCorsiController {
     	int periodo;
     	try {
     		periodo = Integer.parseInt(txtPeriodo.getText());
-    	} catch (NumberFormatException e) {
-    		txtResult.appendText("Devi inserire un periodo (1 o 2)");
+    	}
+    	catch(NumberFormatException e) {
+    		txtResult.appendText("Devi inserire un periodo (1 o 2");
     		return;
     	}
-    	if(periodo != 1 && periodo != 2) {
-    		txtResult.appendText("Devi inserire un periodo (1 o 2)");
+    	
+    	if(periodo!=1 && periodo!=2) {
+    		txtResult.appendText("Devi inserire un periodo (1 o 2");
     		return;
     	}
     	
     	List<Corso> corsi = this.model.getCorsiByPeriodo(periodo);
-    	for(Corso c : corsi) {
-    		txtResult.appendText(c.toString() + "\n");
-    	}
     	
+    	for(Corso c:corsi) {
+    		txtResult.appendText(c.toString()+"\n");
+    	}
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
@@ -76,5 +78,6 @@ public class GestoreCorsiController {
     public void setModel(GestoreCorsi model) {
     	this.model = model;
     }
+
     
 }

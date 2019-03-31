@@ -10,19 +10,18 @@ public class GestoreCorsi {
 
 	public List<Corso> getCorsiByPeriodo(int periodo) {
 		CorsoDAO dao = new CorsoDAO();
-		
-		//Soluzione 1
 		/*List<Corso> corsi = dao.listAll();
 		List<Corso> result = new ArrayList<Corso>();
-		
-		for(Corso c : corsi) {
-			if(c.getPd() == periodo) {
+		for(Corso c:corsi) {
+			if(c.getPd()==periodo) {
 				result.add(c);
 			}
-		}*/
+		}
+		return result;*/
 		
-		//Soluzione 2
-		return dao.listCorsiByPD(periodo);
+		//Sol2
+		
+		return dao.listCorsyByPd(periodo);
 	}
 
 }
